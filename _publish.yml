@@ -1,0 +1,6 @@
+- source: project
+  quarto-pub:
+    - id: ac4d3f25-89fa-416e-a806-84f1ae925c9d
+      url: 'https://vaangmaya.quarto.pub/final-project'
+    - id: 9a9d33b7-806d-47d0-9ea1-192aef95a904
+      url: 'https://vaangmaya.quarto.pub/universities-vs-annual-income'

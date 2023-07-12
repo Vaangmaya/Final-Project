@@ -1,0 +1,76 @@
+---
+execute: 
+  echo: false
+  message: false
+  warning: false
+---
+
+## Question
+
+***What is probability that someone makes more than 50k.***
+
+```{r}
+library(tidyverse)
+library(rstanarm)
+library(usethis)
+library(tidybayes)
+```
+
+```{r}
+#| output: false
+
+x <- read_csv(file = "data/2013_Salaries__Pennsylvania_State_System_of_Higher_Education.csv", col_names = TRUE, show_col_types = FALSE)  
+  
+x <- rename(x, "uni" = "University or Office",  "pay" = "Base Pay")
+
+x <- x |> 
+  select(pay, uni) |> 
+  drop_na() |> 
+  filter(uni != "Office of the Chancellor")
+
+x$pay <- parse_number(x$pay)
+  
+data.frame(x)
+```
+
+```{r}
+fit_obj <- stan_glm(
+  data = x,
+  formula = pay ~ uni,
+  family = gaussian,
+  refresh = 0,
+  seed = 9
+)
+
+```
+
+
+```{r}
+newobs <- tibble(uni = "Indiana")
+
+pe <- posterior_predict(fit_obj, newdata = newobs) |> 
+        as_tibble()
+```
+
+
+## Fitted Model
+
+```{r}
+pe |> 
+  filter(`1` > 0) |> 
+  ggplot(aes(x = `1`)) +
+    geom_histogram(aes(y = after_stat(count/sum(count))),
+                   bins = 100) +
+    labs(title = "Posterior for Predicted Income for Universities in Pennsylvania",
+         x = "Income (thousands)",
+         y = "Probability",
+         caption = "Data source: Kaggle") + 
+    scale_x_continuous(labels = scales::comma_format(accuracy = 1)) +
+    scale_y_continuous(labels = scales::percent_format()) +
+    theme_classic()
+```
+
+## Analysis
+
+Out of the 3,916 observations, only 2,569 make more than 50,000. So about 65.6% make more than 50,000 after they graduate.
+

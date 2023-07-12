@@ -1,0 +1,50 @@
+---
+execute: 
+  echo: false
+  message: false
+  warning: false
+---
+## Model
+```{r}
+library(tidyverse)
+library(usethis)
+library(rstanarm)
+library(gtsummary)
+```
+
+```{r}
+#| output: false
+
+x <- read_csv(file = "data/2013_Salaries__Pennsylvania_State_System_of_Higher_Education.csv", col_names = TRUE, show_col_types = FALSE)  
+  
+x <- rename(x, "uni" = "University or Office",  "pay" = "Base Pay")
+
+x <- x |> 
+  select(pay, uni) |> 
+  drop_na() |> 
+  filter(uni != "Office of the Chancellor")
+
+x$pay <- parse_number(x$pay)
+  
+data.frame(x)
+
+```
+
+```{r}
+#| eval: true
+#| layout-ncol: 3
+#| column: screen-inset
+
+fit_obj <- stan_glm(
+  data = x,
+  formula = pay ~ uni,
+  family = gaussian,
+  refresh = 0,
+  seed = 9
+)
+
+fit_obj
+gtsummary::tbl_regression(fit_obj)
+```
+
+

@@ -1,0 +1,47 @@
+---
+title: "Distribution"
+execute: 
+  echo: false
+  message: false
+  warning: false
+---
+
+```{r}
+library(tidyverse)
+library(usethis)
+library(gganimate)
+```
+
+```{r}
+#| output: false
+
+x <- read_csv(file = "data/2013_Salaries__Pennsylvania_State_System_of_Higher_Education.csv", col_names = TRUE, show_col_types = FALSE)  
+  
+x <- rename(x, "uni" = "University or Office",  "pay" = "Base Pay")
+
+x <- x |> 
+  select(pay, uni) |> 
+  drop_na() |> 
+  filter(uni != "Office of the Chancellor")
+
+x$pay <- parse_number(x$pay)
+  
+data.frame(x)
+
+```
+
+```{r}
+#Cheyney
+x |> 
+  ggplot(
+  )+
+  geom_histogram(mapping = aes(x = pay, group = uni), bins = 100) +
+  theme_classic()+
+  scale_x_continuous(labels = scales::label_number_si())+
+  ggtitle("Distribution of observation values in {closest_state} University") +
+  labs(subtitle=("Majority of the graduates make less than 100k")) +
+  ylab("Absolute frequency") + 
+  xlab("Observation value [-]") +
+  transition_states(uni, transition_length = 2000, state_length = 2000)
+```
+

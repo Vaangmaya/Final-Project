@@ -1,13 +1,69 @@
 ---
-title: "Final Project"
 execute: 
   echo: false
   message: false
   warning: false
 ---
 
+## Introduction
+
+This project aims to explore the relationship between annual income and universities. This data was pulled from Kaggles. By analyzing a data set that includes annual income and information about various universities, I want to answer the question: 
+
+***What is probability that someone makes more than 50k.***
+
+The Model below shows the overall data in comparison to other Universities.
+
 ```{r}
 library(tidyverse)
-library(usethis)
+library(gganimate)
 ```
 
+```{r}
+#| output: false
+
+x <- read_csv(file = "data/2013_Salaries__Pennsylvania_State_System_of_Higher_Education.csv", col_names = TRUE, show_col_types = FALSE)  
+  
+x <- rename(x, "uni" = "University or Office",  "pay" = "Base Pay")
+
+x <- x |> 
+  select(pay, uni) |> 
+  drop_na() |> 
+  filter(uni != "Office of the Chancellor")
+
+x$pay <- parse_number(x$pay)
+  
+data.frame(x)
+
+```
+
+```{r}
+x |> 
+  ggplot(
+    aes(x = uni, y = pay)
+  )+
+  geom_boxplot() +
+  theme_classic()+
+  scale_y_continuous(labels = scales::label_number_si())+
+  theme(
+    axis.text.x = element_text(angle = 300, hjust = 0),
+    axis.title.y = element_text()
+        )+
+  labs(
+    title = "Annual Income of Graduate from Universities in Pennsylvania",
+    subtitle = "The Median income of all the Graduates is between 60k-70k",
+    x = "University", y = "      Income (thousands)      "
+  )
+```
+
+## Conclusion of the Model
+
+##### Pay Amounts: 
+
+- The pay amounts vary across the dataset, ranging from $1,245 to $275,000. There seem to be fluctuations in pay between different universities.
+
+##### Range: 
+
+- Over 90% of the graduates make less that 100k. Thats 11,200 observations in 12,400
+
+- The remaining 10% make anywhere between 107,870 to 275,000
+    

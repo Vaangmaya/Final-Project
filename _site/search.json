@@ -1,9 +1,86 @@
 [
   {
+    "objectID": "Slide_Demo.html#how-are-ya",
+    "href": "Slide_Demo.html#how-are-ya",
+    "title": "Slide_Demo",
+    "section": "How are ya",
+    "text": "How are ya\n#Was"
+  },
+  {
+    "objectID": "Slide_Demo.html#was-good",
+    "href": "Slide_Demo.html#was-good",
+    "title": "Slide_Demo",
+    "section": "Was good",
+    "text": "Was good"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "Universities Vs Annual Income",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "About\n\n  \n \nHi, I’m Vaangmaya. I’m a rising senior at MVHS. I’m interested in Data Science and Linguistics, and would likely pursue a career in it.\n \n  \n   \n  \n    \n     twitter\n  \n  \n    \n     Github\n  \n  \n    \n     Kane’s Data Science Bootcamp"
+  },
+  {
+    "objectID": "analysis.html",
+    "href": "analysis.html",
+    "title": "Universities Vs Annual Income",
+    "section": "",
+    "text": "What is probability that someone makes more than 50k."
+  },
+  {
+    "objectID": "analysis.html#question",
+    "href": "analysis.html#question",
+    "title": "Universities Vs Annual Income",
+    "section": "",
+    "text": "What is probability that someone makes more than 50k."
+  },
+  {
+    "objectID": "analysis.html#fitted-model",
+    "href": "analysis.html#fitted-model",
+    "title": "Universities Vs Annual Income",
+    "section": "Fitted Model",
+    "text": "Fitted Model"
+  },
+  {
+    "objectID": "analysis.html#analysis",
+    "href": "analysis.html#analysis",
+    "title": "Universities Vs Annual Income",
+    "section": "Analysis",
+    "text": "Analysis\nOut of the 3,916 observations, only 2,569 make more than 50,000. So about 65.6% make more than 50,000 after they graduate."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Universities Vs Annual Income",
+    "section": "",
+    "text": "This project aims to explore the relationship between annual income and universities. By analyzing a data set that includes annual income and information about various universities, I want to answer the question:\nWhat is probability that someone makes more than 50k.\nThe Model below shows the overall data in comparison to other Universities."
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Universities Vs Annual Income",
+    "section": "",
+    "text": "This project aims to explore the relationship between annual income and universities. By analyzing a data set that includes annual income and information about various universities, I want to answer the question:\nWhat is probability that someone makes more than 50k.\nThe Model below shows the overall data in comparison to other Universities."
+  },
+  {
+    "objectID": "index.html#conclusion-of-the-model",
+    "href": "index.html#conclusion-of-the-model",
+    "title": "Universities Vs Annual Income",
+    "section": "Conclusion of the Model",
+    "text": "Conclusion of the Model\n\nPay Amounts:\n\nThe pay amounts vary across the dataset, ranging from $1,245 to $275,000. There seem to be fluctuations in pay between different universities.\n\n\n\nRange:\n\nOver 90% of the graduates make less that 100k. Thats 11,200 observations in 12,400\nThe remaining 10% make anywhere between 107,870 to 275,000"
+  },
+  {
+    "objectID": "model.html",
+    "href": "model.html",
+    "title": "Universities Vs Annual Income",
+    "section": "",
+    "text": "stan_glm\n family:       gaussian [identity]\n formula:      pay ~ uni\n observations: 12476\n predictors:   14\n------\n                    Median  MAD_SD \n(Intercept)         56098.2   835.6\nuniCalifornia       -1330.8  1390.9\nuniCheyney           -802.2  1956.5\nuniClarion           1429.4  1371.4\nuniEast Stroudsburg  2828.3  1387.0\nuniEdinboro          1344.0  1324.1\nuniIndiana           4376.4  1136.7\nuniKutztown          2280.4  1236.6\nuniLock Haven        3469.0  1495.2\nuniMansfield        -1582.1  1572.7\nuniMillersville     -2017.5  1264.7\nuniShippensburg      3087.8  1257.2\nuniSlippery Rock     3523.2  1297.5\nuniWest Chester      -927.7  1093.2\n\nAuxiliary parameter(s):\n      Median  MAD_SD \nsigma 29497.1   190.5\n\n------\n* For help interpreting the printed output see ?print.stanreg\n* For info on the priors used see ?prior_summary.stanreg\n\n\n\n\n\n\n  \n    \n    \n      Characteristic\n      Beta\n      95% CI1\n    \n  \n  \n    uni\n\n\n        Bloomsburg\n—\n—\n        California\n-1,331\n-3,956, 1,181\n        Cheyney\n-802\n-4,497, 2,945\n        Clarion\n1,429\n-1,365, 4,097\n        East Stroudsburg\n2,828\n171, 5,555\n        Edinboro\n1,344\n-1,272, 4,006\n        Indiana\n4,376\n2,035, 6,610\n        Kutztown\n2,280\n-356, 4,798\n        Lock Haven\n3,469\n453, 6,389\n        Mansfield\n-1,582\n-4,925, 1,515\n        Millersville\n-2,017\n-4,564, 498\n        Shippensburg\n3,088\n584, 5,586\n        Slippery Rock\n3,523\n977, 6,073\n        West Chester\n-928\n-3,154, 1,182\n  \n  \n  \n    \n      1 CI = Credible Interval"
+  },
+  {
+    "objectID": "model.html#model",
+    "href": "model.html#model",
+    "title": "Universities Vs Annual Income",
+    "section": "",
+    "text": "stan_glm\n family:       gaussian [identity]\n formula:      pay ~ uni\n observations: 12476\n predictors:   14\n------\n                    Median  MAD_SD \n(Intercept)         56098.2   835.6\nuniCalifornia       -1330.8  1390.9\nuniCheyney           -802.2  1956.5\nuniClarion           1429.4  1371.4\nuniEast Stroudsburg  2828.3  1387.0\nuniEdinboro          1344.0  1324.1\nuniIndiana           4376.4  1136.7\nuniKutztown          2280.4  1236.6\nuniLock Haven        3469.0  1495.2\nuniMansfield        -1582.1  1572.7\nuniMillersville     -2017.5  1264.7\nuniShippensburg      3087.8  1257.2\nuniSlippery Rock     3523.2  1297.5\nuniWest Chester      -927.7  1093.2\n\nAuxiliary parameter(s):\n      Median  MAD_SD \nsigma 29497.1   190.5\n\n------\n* For help interpreting the printed output see ?print.stanreg\n* For info on the priors used see ?prior_summary.stanreg\n\n\n\n\n\n\n  \n    \n    \n      Characteristic\n      Beta\n      95% CI1\n    \n  \n  \n    uni\n\n\n        Bloomsburg\n—\n—\n        California\n-1,331\n-3,956, 1,181\n        Cheyney\n-802\n-4,497, 2,945\n        Clarion\n1,429\n-1,365, 4,097\n        East Stroudsburg\n2,828\n171, 5,555\n        Edinboro\n1,344\n-1,272, 4,006\n        Indiana\n4,376\n2,035, 6,610\n        Kutztown\n2,280\n-356, 4,798\n        Lock Haven\n3,469\n453, 6,389\n        Mansfield\n-1,582\n-4,925, 1,515\n        Millersville\n-2,017\n-4,564, 498\n        Shippensburg\n3,088\n584, 5,586\n        Slippery Rock\n3,523\n977, 6,073\n        West Chester\n-928\n-3,154, 1,182\n  \n  \n  \n    \n      1 CI = Credible Interval"
   }
 ]
